@@ -36,11 +36,13 @@
 		float:left;
 		padding:10px; 
 	}
-/*	#playbutton {
-		width: 50%;
-		height: 70%;
-	}*/
-	img{
+	button {
+		position: fixed;
+		top: 70%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	img {
 		border:2px solid black;
 	}
 	</style>
@@ -49,12 +51,11 @@
 
     <ion-pane>
       <ion-content>
-	  
-	  <a href="viewGame.html">
-	  	<button class="playbutton button-outline button-positive">
-	  		play
-	  	</button>
-	  </a>
+		<a href="viewGame.html">
+		  <button class="button button-outline button-positive">
+		  	play
+		  </button>
+		</a>
 	  
       </ion-content>
     </ion-pane>
