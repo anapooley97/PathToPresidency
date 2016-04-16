@@ -34,6 +34,9 @@
 		float:left;
 		padding:10px; 
 	}
+	img{
+		border:2px solid black;
+	}
 	</style>
   </head>
   <body ng-app="starter">
@@ -58,12 +61,29 @@
 		</div>
 
 	<div id="section">
-		<h1>London</h1>
-		<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-		with a metropolitan area of over 13 million inhabitants.</p>
-		<p>Standing on the River Thames, London has been a major settlement for two millennia,
-		its history going back to its founding by the Romans, who named it Londinium.</p>
+	<center>
+		<h2>Your Card</h2>
+		<img src = "playerCard.png" id = "myImage" onclick="changeImage()" height = "200px">
+
+		<h2>Move Cards</h2>
+		<a href= "viewCards.html"><img src = "playerHide.png" height = "200px"></a>
+	</center>
 	</div>
+	
+	<script>
+	
+	var player = 1;
+	
+	function changeImage() {
+		var image = document.getElementById('myImage');
+		if (image.src.match("playerCard")) {
+			image.src = "playerHide.png";
+		} else {
+			image.src = "playerCard.png";
+		}
+		player+=1;
+	}
+</script>
       </ion-content>
     </ion-pane>
   </body>
