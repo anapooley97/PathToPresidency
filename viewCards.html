@@ -50,19 +50,19 @@
 	  <center>
 		<img src = "tiki.jpg" height = "50px" id = "img1" onclick="javascript:fnChangeBorder(1);">
 		<img src = "tiki.jpg" height = "50px" id = "img2" onclick="javascript:fnChangeBorder(2);">
-		<img src = "tiki.jpg" height = "50px" id = "img3" onclick="javascript:fnChangeBorder(3);"></br>
+		<img src = "tiki.jpg" height = "50px" id = "img3" onclick="javascript:fnChangeBorder(3);">
 		<img src = "tiki.jpg" height = "50px" id = "img4" onclick="javascript:fnChangeBorder(4);">
 		<img src = "tiki.jpg" height = "50px" id = "img5" onclick="javascript:fnChangeBorder(5);">
-		<img src = "tiki.jpg" height = "50px" id = "img6" onclick="javascript:fnChangeBorder(6);"></br>
+		<img src = "tiki.jpg" height = "50px" id = "img6" onclick="javascript:fnChangeBorder(6);">
 		<img src = "tiki.jpg" height = "50px" id = "img7" onclick="javascript:fnChangeBorder(7);">
-		<img src = "tiki.jpg" height = "50px" id = "img8" onclick="javascript:fnChangeBorder(8);">
-		<img src = "tiki.jpg" height = "50px" id = "img9" onclick="javascript:fnChangeBorder(9);">
+
 		</center>
 	
 	<script>
-	var track = 0;
+	var trackSelect = 0;
+	var trackIndex;
 	function fnChangeBorder(index){
-		if(track == 1){
+		if(trackSelect == 1){
 			document.getElementById("img1").style.borderColor="black";
 			document.getElementById("img2").style.borderColor="black";
 			document.getElementById("img3").style.borderColor="black";
@@ -70,11 +70,26 @@
 			document.getElementById("img5").style.borderColor="black";
 			document.getElementById("img6").style.borderColor="black";
 			document.getElementById("img7").style.borderColor="black";
-			document.getElementById("img8").style.borderColor="black";
-			document.getElementById("img9").style.borderColor="black";
 		}
 		document.getElementById("img"+index).style.borderColor="#00FF00";
 		track = 1;
+	}
+	
+	function changeImage() {
+		
+	}
+	
+	function saveData(user, pass) {
+   var account = {
+     User: user,
+     Pass: pass
+	};
+		//converts to JSON string the Object
+		account = JSON.stringify(account);
+		//creates a base-64 encoded ASCII string
+		account = btoa(account);
+		//save the encoded accout to web storage
+		localStorage.setItem('_account', account);
 	}
 	
 	</script>
