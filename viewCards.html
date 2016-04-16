@@ -60,21 +60,42 @@
 		</center>
 	
 	<script>
+	var trackSelect = 0;
+	var tractIndex;
 	var track = 0;
 	function fnChangeBorder(index){
-		if(track == 1){
-			document.getElementById("img1").style.borderColor="black";
-			document.getElementById("img2").style.borderColor="black";
-			document.getElementById("img3").style.borderColor="black";
-			document.getElementById("img4").style.borderColor="black";
-			document.getElementById("img5").style.borderColor="black";
-			document.getElementById("img6").style.borderColor="black";
-			document.getElementById("img7").style.borderColor="black";
-			document.getElementById("img8").style.borderColor="black";
-			document.getElementById("img9").style.borderColor="black";
+		if(trackSelect == 1) {
+			if(track == 1){
+				document.getElementById("img1").style.borderColor="black";
+				document.getElementById("img2").style.borderColor="black";
+				document.getElementById("img3").style.borderColor="black";
+				document.getElementById("img4").style.borderColor="black";
+				document.getElementById("img5").style.borderColor="black";
+				document.getElementById("img6").style.borderColor="black";
+				document.getElementById("img7").style.borderColor="black";
+				document.getElementById("img8").style.borderColor="black";
+				document.getElementById("img9").style.borderColor="black";
+			}
+			document.getElementById("img"+index).style.borderColor="#00FF00";
+			track = 1;
 		}
-		document.getElementById("img"+index).style.borderColor="#00FF00";
-		track = 1;
+	}
+	
+	function changeImage() {
+		
+	}
+	
+	function saveData(user, pass) {
+   	var account = {
+     User: user,
+     Pass: pass
+	};
+		//converts to JSON string the Object
+		account = JSON.stringify(account);
+		//creates a base-64 encoded ASCII string
+		account = btoa(account);
+		//save the encoded accout to web storage
+		localStorage.setItem('_account', account);
 	}
 	
 	</script>
