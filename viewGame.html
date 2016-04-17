@@ -22,18 +22,18 @@
     <script src="js/app.js"></script>
 	
 	<style>
-	#nav {
+	#rank {
 		line-height:30px;
-		background-color:#eeeeee;
-		width:50%;
+		width:33%;
 		float:left;
 		padding:5px; 
 	}
-	#section {
-		width:50%;
+	#moves {
+		width:33%;
 		float:left;
 		padding:10px; 
 	}
+	
 	img{
 		border:2px solid black;
 	}
@@ -46,43 +46,154 @@
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
       <ion-content>
-	  <div id="nav">
+				<center>
+	  <div>
+		<div id="rank">
 	  <center>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px"></br>
-		<img src = "tiki.jpg" height = "50px">
+		<img src = "rank1.png" id = "rank1" onclick="javascript:selectCandidateCard(1);" height = "60px"></br>
+		<img src = "rank2.png" id = "rank2" onclick="javascript:selectCandidateCard(2);" height = "60px"></br>
+		<img src = "rank3.png" id = "rank3" onclick="javascript:selectCandidateCard(3);" height = "60px"></br>
+		<img src = "rank4.png" id = "rank4" onclick="javascript:selectCandidateCard(4);" height = "60px"></br>
+		<img src = "rank5.png" id = "rank5" onclick="javascript:selectCandidateCard(5);" height = "60px"></br>
+		<img src = "rank6.png" id = "rank6" onclick="javascript:selectCandidateCard(6);" height = "60px"></br>
+		<img src = "rank7.png" id = "rank7" onclick="javascript:selectCandidateCard(7);" height = "60px"></br>
+		<img src = "rank8.png" id = "rank8" onclick="javascript:selectCandidateCard(8);" height = "60px"></br>
+		<img src = "rank9.png" id = "rank9" onclick="javascript:selectCandidateCard(9);" height = "60px">
 		</center>
 		</div>
 
-	<div id="section">
+	<div id="moves">
 	<center>
-		<h2>Your Card</h2>
-		<img src = "playerCard.png" id = "myImage" onclick="changeImage()" height = "200px">
 
-		<h2>Move Cards</h2>
-		<a href= "viewCards.html"><img src = "playerHide.png" height = "200px"></a>
+		<img src = "img1.png" id = "img1" onclick="javascript:selectMoveCard(1);" height = "200px">
+		<img src = "img2.png" id = "img2" onclick="javascript:selectMoveCard(2);" height = "200px"></br>
+		<img src = "img3.png" id = "img3" onclick="javascript:selectMoveCard(3);" height = "200px">
+		<img src = "img4.png" id = "img4" onclick="javascript:selectMoveCard(4);" height = "200px">
+		<img src = "img5.png" id = "img5" onclick="javascript:selectMoveCard(5);" height = "200px"></br>
+		<img src = "img6.png" id = "img6" onclick="javascript:selectMoveCard(6);" height = "200px">
+		<img src = "img7.png" id = "img7" onclick="javascript:selectMoveCard(7);" height = "200px">
 	</center>
 	</div>
 	
+	<div id = "rank">
+		
+		<h2 id = "instructions">Select a Move Card</h2></br>
+		<img src = "hide.png" id = "myImage" height = "200px"></br>
+		<button onclick="changeImage()">View/Hide Score Card</button></br></br>
+		<button id = "selectButton" onclick="buttonPressed()">Select Move Card</button>
+		<button id = "selectButton2" onclick="buttonPressed2()">Select Candidate Card</button>
+		
+	</div>
+	
+	</div>
+	
+	</center>
+	
+	<!-- SCRIPT SECTION -->
 	<script>
 	
 	var player = 1;
 	
+	var trackMoveSelect = 0;
+	var trackCandidateSelect = 0;
+	var selectMove = false;
+	
+	var buttonNumber = 0;
+	
 	function changeImage() {
-		var image = document.getElementById('myImage');
-		if (image.src.match("playerCard")) {
-			image.src = "playerHide.png";
-		} else {
-			image.src = "playerCard.png";
+			var image = document.getElementById('myImage');
+			if (image.src.match("hide")) {
+				image.src = "img1.png";
+			} else {
+				image.src = "hide.png";
+			}
 		}
-		player+=1;
+	
+	function selectMoveCard(index){
+		
+		if(selectMove == false){
+			if(trackMoveSelect == 1){
+				document.getElementById("img1").style.borderColor="black";
+				document.getElementById("img2").style.borderColor="black";
+				document.getElementById("img3").style.borderColor="black";
+				document.getElementById("img4").style.borderColor="black";	
+				document.getElementById("img5").style.borderColor="black";
+				document.getElementById("img6").style.borderColor="black";
+				document.getElementById("img7").style.borderColor="black";
+			}
+		document.getElementById("img"+index).style.borderColor="#00FF00";
+		trackMoveSelect = 1;
+		buttonNumber = 1;
+		trackMoveCard = index;
+		}
+		
 	}
+	
+	<!-- MOVE CARD SELECTED BUTTON --><!-- MOVE CARD SELECTED BUTTON --><!-- MOVE CARD SELECTED BUTTON --><!-- MOVE CARD SELECTED BUTTON --><!-- MOVE CARD SELECTED BUTTON -->
+
+		
+	function buttonPressed(){
+		if(buttonNumber == 0){
+			document.getElementById("instructions").innerHTML = "Select a move card.";
+		}
+		if(buttonNumber == 1){
+			selectMove = true;
+			document.getElementById("instructions").innerHTML = "Now select a candidate to move.";
+			buttonNumber = 2;
+			this.value = "Select Candidate";
+			<!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK -->
+	 
+		}
+			
+	}
+	
+	<!-- CANDIDATE CARD SELECTED BUTTON --><!-- CANDIDATE CARD SELECTED BUTTON --><!-- CANDIDATE CARD SELECTED BUTTON --><!-- CANDIDATE CARD SELECTED BUTTON --><!-- CANDIDATE CARD SELECTED BUTTON --> 
+	
+
+	var candidateSelected = false;
+	var buttonNumber2 = 0;
+		
+	function buttonPressed2(){
+		if(buttonNumber2 == 0){
+			document.getElementById("instructions").innerHTML = "Select a candidate card.";
+		}
+		if(buttonNumber2 == 1){
+			candidateSelected = true;
+			document.getElementById("instructions").innerHTML = "Candidate selected.";
+			buttonNumber2 = 2;
+			this.value = "Select Candidate";
+			<!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK --><!-- REMOVE MOVE CARD FROM DECK -->
+		}
+			
+	}
+	
+	trackCandidate;
+	
+	function selectCandidateCard(index){
+		if(selectMove == true && candidateSelected == false){
+			if(trackCandidateSelect == 1){
+				document.getElementById("rank1").style.borderColor="black";
+				document.getElementById("rank2").style.borderColor="black";
+				document.getElementById("rank3").style.borderColor="black";
+				document.getElementById("rank4").style.borderColor="black";	
+				document.getElementById("rank5").style.borderColor="black";
+				document.getElementById("rank6").style.borderColor="black";
+				document.getElementById("rank7").style.borderColor="black";
+				document.getElementById("rank8").style.borderColor="black";
+				document.getElementById("rank9").style.borderColor="black";
+			}
+		document.getElementById("rank"+index).style.borderColor="#00FF00";
+		trackCandidateSelect = 1;
+		buttonNumber2 = 1;
+		trackCandidate = index;	
+		}
+		
+	}
+  
+	<!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION --><!-- MOVE SECTION -->
+	
+	
+	
 </script>
       </ion-content>
     </ion-pane>
