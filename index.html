@@ -26,18 +26,37 @@
 <!--shit son this is stuff -->
 
 	<style>
+	#nav {
+		line-height:30px;
+		background-color:#eeeeee;
+		width:50%;
+		float:left;
+		padding:5px; 
+	}
+	#section {
+		width:50%;
+		float:left;
+		padding:10px; 
+	}
 	button {
 		position: fixed;
 		top: 70%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+
+	img {
+		border:2px solid black;
+	}
+
 	</style>
 
   <body ng-app="starter">
 
     <ion-pane>
+
       <ion-content></br></br>
+
 		<a href="viewGame.html">
 		  <button class="button button-outline button-positive">
 		  	play
@@ -45,7 +64,6 @@
 		</a>
     
     <!-- CREATE ARRAY OF RANDOMIZED CANDIDATE ORDER --><!-- CREATE ARRAY OF RANDOMIZED CANDIDATE ORDER --><!-- CREATE ARRAY OF RANDOMIZED CANDIDATE ORDER -->
-	  
       </ion-content>
     </ion-pane>
   </body>
